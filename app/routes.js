@@ -2,7 +2,6 @@ import { Router } from 'express';
 
 import MetaController from './controllers/meta.controller';
 import AuthController from './controllers/auth.controller';
-import UsersController from './controllers/users.controller';
 import PostsController from './controllers/posts.controller';
 
 import authenticate from './middleware/authenticate';
