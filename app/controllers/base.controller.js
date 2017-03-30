@@ -1,7 +1,7 @@
 /* @flow */
 
 class BaseController {
-	filterParams(params, whitelist : Array<string>) {
+	filterParams(params : Object, whitelist : Array<string>) {
 		const filtered = {}
 		for (const key in params) {
 			if (whitelist.indexOf(key) > -1) {
@@ -11,7 +11,7 @@ class BaseController {
 		return filtered
 	}
 
-	formatApiError(err) {
+	formatApiError(err : Object) {
 		if (!err) {
 			// eslint-disable-next-line no-console
 			return console.error('Provide an error')
@@ -19,7 +19,7 @@ class BaseController {
 
 		const formatted = {
 			message: err.message,
-		};
+		}
 
 		if (err.errors) {
 			formatted.errors = {}

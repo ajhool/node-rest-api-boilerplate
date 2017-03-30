@@ -34,7 +34,7 @@ class PostController extends BaseController {
     try {
       const posts =
         await Post.find({})
-                  .populate({ path: '_user', select: '-posts -role' })
+//           .populate({ path: '_user', select: '-posts -role' })
 
       res.json(posts);
     } catch(err) {
