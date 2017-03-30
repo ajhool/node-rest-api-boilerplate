@@ -1,25 +1,27 @@
-import { expect } from 'chai';
-import server from '../../utils/server.mock';
-import User from '../../../app/models/user';
-import Post from '../../../app/models/post';
-import UserFactory from '../../factories/user.factory';
-import PostFactory from '../../factories/post.factory';
+/* @flow */
 
-const ENDPOINT = '/posts';
-let testUser;
-let testPost;
+import { expect } from 'chai'
+import server from '../../utils/server.mock'
+import Post from '../../../app/models/post'
+import PostFactory from '../../factories/post.factory'
+
+const ENDPOINT : string = '/posts'
+let testUser
+let testPost
 
 describe(`POST ${ENDPOINT}`, () => {
+  /*
   before(() => (
     User.remove({})
     .then(() => Post.remove({}))
     .then(() => User.create(UserFactory.generate()))
     .then(u => testUser = u)
-  ));
+  ))
+  */
 
   beforeEach(() => {
-    testPost = PostFactory.generate();
-  });
+    testPost = PostFactory.generate()
+  })
 
   describe('#201', () => {
     it('should create a post', (done) => {

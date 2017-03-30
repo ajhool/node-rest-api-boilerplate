@@ -1,8 +1,10 @@
-import faker from 'faker';
+/* @flow */
+
+import faker from 'faker'
 
 class PostFactory {
-  generateList(count, attrs = {}) {
-    let list = []
+  generateList(count : number, attrs : Object = {}) {
+    let list : Array<Object> = []
     while(count) {
       list.push(this.generate(attrs));
       count--;
@@ -10,7 +12,7 @@ class PostFactory {
     return list;
   }
 
-  generate(attrs) {
+  generate(attrs : Object) {
     return Object.assign({}, {
       text: faker.lorem.sentence()
     }, attrs);

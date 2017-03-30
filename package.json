@@ -4,14 +4,35 @@
   "description": "Boilerplate project for a restful node backend server powered by ES6 and Express",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && babel app -d build",
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
     "clean": "rm -rf build && mkdir build",
-    "start": "nodemon",
+    "start": "node dist/index.js",
     "test": "NODE_ENV=test mocha --recursive --reporter spec --compilers js:babel-register tests",
     "lint": "eslint app",
     "test:watch": "nodemon --exec 'npm run test' tests",
     "coverage": "NODE_ENV=test babel-node ./node_modules/.bin/isparta cover _mocha -- --recursive --reporter spec --compilers js:babel-register tests",
-    "validate": "npm run test && npm outdated --depth 0"
+    "validate": "npm run test && npm outdated --depth 0",
+    "prepareDeploy": "npm run -s build"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "babel": {
+    "presets": [
+      "flow"
+    ]
   },
   "engines": {
     "node": ">= 6",
@@ -65,6 +86,7 @@
     "faker": "^3.1.0",
     "isparta": "^4.0.0",
     "mocha": "^3.1.2",
+    "flow-bin": "^0.42.0",
     "nodemon": "^1.11.0"
   }
 }
