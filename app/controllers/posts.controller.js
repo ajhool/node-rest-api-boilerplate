@@ -1,30 +1,32 @@
-import BaseController from './base.controller';
-import Post from '../models/post';
+/* @flow */
+
+import BaseController from './base.controller'
+import Post from '../models/post'
 
 class PostController extends BaseController {
 
-  whitelist = [
+  whitelist : Array<string> = [
     'text',
-  ];
+  ]
 
    // Middleware to populate post based on url param
   _populate = async (req, res, next) => {
-    const { id } = req.params;
+    const { id } = req.params
 
     try {
-      const post = await Post.findById(id);
+      const post = await Post.findById(id)
 
       if (!post) {
-        const err = new Error('Post not found.');
-        err.status = 404;
-        return next(err);
+        const err = new Error('Post not found.')
+        err.status = 404
+        return next(err)
       }
 
-      req.post = post;
-      next();
+      req.post = post
+      next()
     } catch(err) {
-      err.status = err.name ==='CastError' ? 404 : 500;
-      next(err);
+      err.status = err.name ==='CastError' ? 404 : 500
+      next(err)
     }
   }
 
@@ -32,7 +34,7 @@ class PostController extends BaseController {
     try {
       const posts =
         await Post.find({})
-                  .populate({ path: '_user', select: '-posts -role' });
+                  .populate({ path: '_user', select: '-posts -role' })
 
       res.json(posts);
     } catch(err) {
@@ -45,7 +47,7 @@ class PostController extends BaseController {
    */
 
   fetch = (req, res) => {
-    res.json(req.post);
+    res.json(req.post)
   }
 
   /**
@@ -53,7 +55,7 @@ class PostController extends BaseController {
    */
 
   create = async (req, res, next) => {
-    const params = this.filterParams(req.body, this.whitelist);
+    const params = this.filterParams(req.body, this.whitelist)
 
     const post = new Post({
       ...params,
@@ -61,9 +63,9 @@ class PostController extends BaseController {
     });
 
     try {
-      res.status(201).json(await post.save());
+      res.status(201).json(await post.save())
     } catch(err) {
-      next(err);
+      next(err)
     }
   }
 
@@ -75,15 +77,15 @@ class PostController extends BaseController {
      */
     if (req.post._user.toString() === req.currentUser._id.toString()) {
       try {
-        await req.post.remove();
-        res.sendStatus(204);
+        await req.post.remove()
+        res.sendStatus(204)
       } catch(err) {
-        next(err);
+        next(err)
       }
     } else {
-      res.sendStatus(403);
+      res.sendStatus(403)
     }
   }
 }
 
-export default new PostController();
+export default new PostController()

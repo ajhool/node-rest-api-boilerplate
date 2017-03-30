@@ -1,3 +1,5 @@
+/* @flow */
+
 import path from 'path';
 import merge from 'lodash/merge';
 
@@ -45,7 +47,7 @@ const defaultConfig = {
 const environmentConfigs = {
   development: {
     mongo: {
-      uri: process.env.MONGO_URI || 'mongodb://localhost/development',
+      uri: process.env.MONGO_URI || 'mongodb://localhost/content-dev',
     },
     security: {
       saltRounds: 4,
@@ -54,7 +56,7 @@ const environmentConfigs = {
   test: {
     port: 5678,
     mongo: {
-      uri: process.env.MONGO_URI || 'mongodb://localhost/test',
+      uri: process.env.MONGO_URI || 'mongodb://localhost/content-test',
     },
     security: {
       saltRounds: 4,

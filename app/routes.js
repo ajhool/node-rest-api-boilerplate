@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import MetaController from './controllers/meta.controller';
-import AuthController from './controllers/auth.controller';
 import PostsController from './controllers/posts.controller';
 
 import authenticate from './middleware/authenticate';
@@ -13,7 +12,7 @@ const routes = new Router();
 routes.get('/', MetaController.index);
 
 // Authentication
-routes.post('/auth/login', AuthController.login);
+//routes.post('/auth/login', AuthController.login);
 
 // Post
 routes.get('/posts', PostsController.search);

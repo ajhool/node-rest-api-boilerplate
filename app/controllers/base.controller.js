@@ -1,18 +1,20 @@
+/* @flow */
+
 class BaseController {
-	filterParams(params, whitelist) {
-		const filtered = {};
+	filterParams(params, whitelist : Array<string>) {
+		const filtered = {}
 		for (const key in params) {
 			if (whitelist.indexOf(key) > -1) {
-				filtered[key] = params[key];
+				filtered[key] = params[key]
 			}
 		}
-		return filtered;
+		return filtered
 	}
 
 	formatApiError(err) {
 		if (!err) {
 			// eslint-disable-next-line no-console
-			return console.error('Provide an error');
+			return console.error('Provide an error')
 		}
 
 		const formatted = {
@@ -20,17 +22,17 @@ class BaseController {
 		};
 
 		if (err.errors) {
-			formatted.errors = {};
-			const errors = err.errors;
+			formatted.errors = {}
+			const errors = err.errors
 			for (const type in errors) {
 				if (errors.hasOwnProperty(type)) {
-					formatted.errors[type] = errors[type].message;
+					formatted.errors[type] = errors[type].message
 				}
 			}
 		}
 
-		return formatted;
+		return formatted
 	}
 }
 
-export default BaseController;
+export default BaseController

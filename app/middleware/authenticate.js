@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/user';
 import Constants from '../config/constants';
 
 const { sessionSecret } = Constants.security;
+
+//TODO: Authenticate access to all posts with this user's ID, but we don't
+//      Need the actual user to search for it here.
 
 export default function authenticate(req, res, next) {
   const { authorization } = req.headers;

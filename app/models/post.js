@@ -10,7 +10,9 @@ const PostSchema = new Schema({
   // likes : [{ type: Schema.Types.ObjectId, ref: 'Like' }],
   // comments : [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
   // flags : [{ type: Schema.Types.ObjectId, ref: 'Flag' }]
-   _user: { type: Schema.Types.ObjectId, ref: 'User' },
+
+  //ajh removal:
+   //_user: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {
   timestamps: true,
 });
