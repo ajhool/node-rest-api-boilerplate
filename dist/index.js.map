@@ -1,0 +1,1 @@
+{"version":3,"sources":["../app/index.js"],"names":["require","config"],"mappings":";;AAEA;AACAA,QAAQ,QAAR,EAAkBC,MAAlB;;AAEA;AACAD,QAAQ,YAAR;;AAEA;AACAA,QAAQ,UAAR","file":"index.js","sourcesContent":["/* @flow */\n\n// Load environment variables\nrequire('dotenv').config()\n\n// Initialize Database\nrequire('./database')\n\n// Initialize Server\nrequire('./server')\n"]}
