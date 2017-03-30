@@ -2,6 +2,7 @@
 npm-debug.log
 .imdone
 build
+dist
 coverage
 node_modules
 .env
