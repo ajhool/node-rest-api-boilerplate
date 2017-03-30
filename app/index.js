@@ -1,8 +1,10 @@
+/* @flow */
+
 // Load environment variables
-require('dotenv').config();
+require('dotenv').config()
 
 // Initialize Database
-require('./database');
+require('./database')
 
 // Initialize Server
-require('./server');
+require('./server')

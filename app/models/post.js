@@ -1,5 +1,7 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+/* @flow */
+
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
 const PostSchema = new Schema({
   text: {
@@ -17,6 +19,6 @@ const PostSchema = new Schema({
   timestamps: true,
 });
 
-const PostModel = mongoose.model('Post', PostSchema);
+const PostModel = mongoose.model('Post', PostSchema)
 
-export default PostModel;
+export default PostModel
