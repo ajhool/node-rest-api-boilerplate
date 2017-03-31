@@ -11,7 +11,7 @@ class PostController extends BaseController {
 
   findByOwner = async(req, res, next) => {
     const { owner } = req.owner
-    
+
     try {
       const post = await Post.find({ 'owner' : owner })
 
@@ -26,7 +26,7 @@ class PostController extends BaseController {
     } catch(err) {
       err.status = err.name ==='CastError' ? 404 : 500
       next(err)
-    }   
+    }
   }
 
    // Middleware to populate post based on url param

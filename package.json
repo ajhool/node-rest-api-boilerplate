@@ -59,6 +59,7 @@
   "dependencies": {
     "bcrypt": "^1.0.0",
     "body-parser": "^1.15.2",
+    "connect-ensure-login": "^0.1.1",
     "cors": "^2.8.1",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
@@ -68,7 +69,9 @@
     "method-override": "^2.3.6",
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0",
-    "multer": "^1.2.0"
+    "multer": "^1.2.0",
+    "passport": "^0.3.2",
+    "passport-auth0": "^0.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
