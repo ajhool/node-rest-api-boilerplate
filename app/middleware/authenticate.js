@@ -24,13 +24,13 @@ export default function authenticate(req, res, next) {
         if(user){
          req.currentUser = user
          next()
-       } else {
-         res.status(401).send()
-       }
+        } else {
+          const err = {status: 500}
+          next(err)
+        }
     })
     .catch(function (err) {
-        // API call failed...
-      res.status(500).send({message: unable to process request})
+      err.status = 500
+      next(err)
     })
-  })
 }
