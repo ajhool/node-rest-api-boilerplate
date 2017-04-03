@@ -57,6 +57,7 @@
   },
   "homepage": "https://github.com/ajhool/node-rest-api-boilerplate",
   "dependencies": {
+    "babel-runtime": "^6.23.0",
     "bcrypt": "^1.0.0",
     "body-parser": "^1.15.2",
     "connect-ensure-login": "^0.1.1",
