@@ -41,6 +41,9 @@ const defaultConfig = {
     sessionExpiration: process.env.SESSION_EXPIRATION || 60 * 60 * 24 * 7, // 1 week
     saltRounds: process.env.SALT_ROUNDS || 12,
   },
+  userStore: {
+    url: process.env.USER_STORE_URL
+  }
 };
 
 // Environment specific overrides
